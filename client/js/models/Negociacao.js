@@ -4,6 +4,8 @@ class Negociacao{
         this._data = data;
         this._quantidade = quantidade;
         this._valor = valor;   
+
+        Object.freeze(this);//Congela o objeto para não poder mais alterar suas propriedades.
     }
 
     get data(){
