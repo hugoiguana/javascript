@@ -10,8 +10,13 @@ class NegociacaoController{
     adiciona(event){
         event.preventDefault();
 
-       let data = new Date(this._inputData.value.split('-'));
-       //let data = new Date(this._inputData.value.replace('/-/g', ','));
+       let data = new Date(
+          ...this._inputData.value.split('-').map(function(item, i){ 
+                return (i == 1 ? item - 1 : item);
+           })
+        );
+       
+       
        console.log(this._inputData.value);
        console.log(data);
 
