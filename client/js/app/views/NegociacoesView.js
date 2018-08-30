@@ -30,14 +30,10 @@ class NegociacoesView {
             
             <tfoot>            
                 <td colspan="3"></td>
-                <td>${//IIFE(immediately invoked function expression)
-                    (function(){
-                        let total = 0;
-                        model.negociacoes.forEach(n => total+= n.voume);
-                        return total;
-                    })()
-                    }
-                </td>
+                <td>${model.negociacoes.reduce(function(total, n){
+                    return total + n.volume;
+                    }, 0.0)
+                }</td>
             </tfoot>
         </table>        
         `;
